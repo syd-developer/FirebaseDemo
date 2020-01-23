@@ -28,6 +28,7 @@ class TestView: UIViewController {
 		super.viewDidLoad()
 		title = "Test"
 
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Fetch", style: .plain, target: self, action: #selector(actionFetch))
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(actionAdd))
 
 		tableView.tableFooterView = UIView()
@@ -51,7 +52,9 @@ class TestView: UIViewController {
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func createObserver() {
 
-		listener = Firestore.firestore().collection("Items").addSnapshotListener { querySnapshot, error in
+		let query = Firestore.firestore().collection("Items")
+			.whereField("number", isGreaterThan: 100)
+		listener = query.addSnapshotListener { querySnapshot, error in
 			if let snapshot = querySnapshot {
 				for documentChange in snapshot.documentChanges {
 					self.addItem(documentChange.document.data())
@@ -78,6 +81,22 @@ class TestView: UIViewController {
 
 		listener?.remove()
 		listener = nil
+	}
+
+	// MARK: - Backend methods (fetch)
+	//---------------------------------------------------------------------------------------------------------------------------------------------
+	func fetchItems() {
+
+		let query = Firestore.firestore().collection("Items")
+			.whereField("number", isGreaterThan: 100)
+		query.getDocuments() { querySnapshot, error in
+			if let snapshot = querySnapshot {
+				for documentChange in snapshot.documentChanges {
+					let data = documentChange.document.data()
+					print(data)
+				}
+			}
+		}
 	}
 
 	// MARK: - Backend methods (create, update)
@@ -125,6 +144,12 @@ class TestView: UIViewController {
 	}
 
 	// MARK: - User actions
+	//---------------------------------------------------------------------------------------------------------------------------------------------
+	@objc func actionFetch() {
+
+		fetchItems()
+	}
+
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	@objc func actionAdd() {
 
