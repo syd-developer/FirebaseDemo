@@ -117,8 +117,8 @@ class TestView: UIViewController {
 		item["updatedAt"] = FieldValue.serverTimestamp()
 
 		Firestore.firestore().collection("Items").document(objectId).setData(item) { error in
-			if (error != nil) {
-				print(error!.localizedDescription)
+			if let error = error {
+				print(error.localizedDescription)
 			}
 		}
 	}
@@ -137,8 +137,8 @@ class TestView: UIViewController {
 		item["updatedAt"] = FieldValue.serverTimestamp()
 
 		Firestore.firestore().collection("Items").document(objectId).updateData(item) { error in
-			if (error != nil) {
-				print(error!.localizedDescription)
+			if let error = error {
+				print(error.localizedDescription)
 			}
 		}
 	}
