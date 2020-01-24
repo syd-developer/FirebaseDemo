@@ -47,7 +47,7 @@ class AuthUser: NSObject {
 		guard let firuser = Auth.auth().currentUser else {
 			fatalError("AuthUser.checkPassword currentUser error.")
 		}
-		
+
 		guard let email = firuser.email else {
 			fatalError("AuthUser.checkPassword firuser.email error.")
 		}
