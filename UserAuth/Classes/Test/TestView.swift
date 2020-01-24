@@ -22,6 +22,7 @@ class TestView: UIViewController {
 		super.viewDidLoad()
 		title = "Test"
 
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Password", style: .plain, target: self, action: #selector(actionPassword))
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(actionLogout))
 	}
 
@@ -38,6 +39,18 @@ class TestView: UIViewController {
 	}
 
 	// MARK: - User actions
+	//---------------------------------------------------------------------------------------------------------------------------------------------
+	@objc func actionPassword() {
+
+		let passwordView = PasswordView()
+		let navController = UINavigationController(rootViewController: passwordView)
+		if #available(iOS 13.0, *) {
+			navController.isModalInPresentation = true
+			navController.modalPresentationStyle = .fullScreen
+		}
+		self.present(navController, animated: true)
+	}
+
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	@objc func actionLogout() {
 

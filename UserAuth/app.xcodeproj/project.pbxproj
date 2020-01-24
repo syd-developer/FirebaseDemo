@@ -21,6 +21,9 @@
 		29D29EF91D9A59E4006CA074 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D29EF81D9A59E4006CA074 /* AppDelegate.swift */; };
 		29D29F011D9A59E4006CA074 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D29F001D9A59E4006CA074 /* Assets.xcassets */; };
 		29D29F041D9A59E4006CA074 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D29F021D9A59E4006CA074 /* LaunchScreen.storyboard */; };
+		29E8299A23DB66AE00588D22 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E8299823DB66AE00588D22 /* PasswordView.swift */; };
+		29E8299B23DB66AE00588D22 /* PasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29E8299923DB66AE00588D22 /* PasswordView.xib */; };
+		29E8299D23DB683E00588D22 /* NSError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E8299C23DB683E00588D22 /* NSError+Extension.swift */; };
 		6C0888E250EDDE30BCA104EB /* Pods_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A8835041C05399266378E9 /* Pods_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		29D29F001D9A59E4006CA074 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29D29F031D9A59E4006CA074 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29D29F051D9A59E4006CA074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29E8299823DB66AE00588D22 /* PasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		29E8299923DB66AE00588D22 /* PasswordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordView.xib; sourceTree = "<group>"; };
+		29E8299C23DB683E00588D22 /* NSError+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSError+Extension.swift"; sourceTree = "<group>"; };
 		7393A6F3A4D6270AF7ACDCFA /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
 		DED94DC0AC66CCD8277DB3AF /* app-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "app-Prefix.pch"; sourceTree = "<group>"; };
 		FC28F63C1114893726170446 /* Pods-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-app/Pods-app.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +70,7 @@
 		29601FE21F2CF5F600544468 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				29E8299723DB66AE00588D22 /* Password */,
 				297EB35C23DB385D00B7FFAD /* Test */,
 				297EB35F23DB385D00B7FFAD /* Utilities */,
 				297EB34D23DB385D00B7FFAD /* Welcome */,
@@ -113,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				297EB36023DB385D00B7FFAD /* AuthUser.swift */,
+				29E8299C23DB683E00588D22 /* NSError+Extension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -148,6 +156,15 @@
 				29D29F051D9A59E4006CA074 /* Info.plist */,
 			);
 			path = app;
+			sourceTree = "<group>";
+		};
+		29E8299723DB66AE00588D22 /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				29E8299823DB66AE00588D22 /* PasswordView.swift */,
+				29E8299923DB66AE00588D22 /* PasswordView.xib */,
+			);
+			path = Password;
 			sourceTree = "<group>";
 		};
 		7B8B1B7262BA6687D240D5CB /* Pods */ = {
@@ -248,6 +265,7 @@
 				2950182F1D9A5CE000AFD8B3 /* GoogleService-Info.plist in Resources */,
 				297EB36B23DB385D00B7FFAD /* TestView.xib in Resources */,
 				297EB36323DB385D00B7FFAD /* LoginEmailView.xib in Resources */,
+				29E8299B23DB66AE00588D22 /* PasswordView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,9 +322,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				297EB36C23DB385D00B7FFAD /* TestView.swift in Sources */,
+				29E8299A23DB66AE00588D22 /* PasswordView.swift in Sources */,
 				29D29EF91D9A59E4006CA074 /* AppDelegate.swift in Sources */,
 				297EB36D23DB385D00B7FFAD /* AuthUser.swift in Sources */,
 				297EB36223DB385D00B7FFAD /* LoginEmailView.swift in Sources */,
+				29E8299D23DB683E00588D22 /* NSError+Extension.swift in Sources */,
 				297EB36523DB385D00B7FFAD /* RegisterEmailView.swift in Sources */,
 				297EB36123DB385D00B7FFAD /* WelcomeView.swift in Sources */,
 			);

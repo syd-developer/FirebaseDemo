@@ -42,6 +42,36 @@ class AuthUser: NSObject {
 
 	// MARK: -
 	//---------------------------------------------------------------------------------------------------------------------------------------------
+	class func checkPassword(password: String, completion: @escaping (_ error: Error?) -> Void) {
+
+		guard let firuser = Auth.auth().currentUser else {
+			fatalError("AuthUser.checkPassword currentUser error.")
+		}
+		
+		guard let email = firuser.email else {
+			fatalError("AuthUser.checkPassword firuser.email error.")
+		}
+
+		let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+		firuser.reauthenticate(with: credential) { authResult, error in
+			completion(error)
+		}
+	}
+
+	//---------------------------------------------------------------------------------------------------------------------------------------------
+	class func updatePassword(password: String, completion: @escaping (_ error: Error?) -> Void) {
+
+		guard let firuser = Auth.auth().currentUser else {
+			fatalError("AuthUser.updatePassword currentUser error.")
+		}
+
+		firuser.updatePassword(to: password) { error in
+			completion(error)
+		}
+	}
+
+	// MARK: -
+	//---------------------------------------------------------------------------------------------------------------------------------------------
 	class func logOut() {
 
 		try! Auth.auth().signOut()
